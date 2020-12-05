@@ -75,11 +75,11 @@ public class GameGrid {
 		for(int i=0;i<nbLines;i++) {
 			for(int j=0;j<nbColumns;j++) {
 				if(grid[i][j]=='@') {
-					if(i+1<=nbLines && grid[i+1][j]  ==emptyCase) {//i cannot increment above nbLines and go Out of bounds
+					if(i+1<=nbLines && grid[i+1][j]  == emptyCase) {//i cannot increment above nbLines and go Out of bounds
 						tempPos= grid[i][j];//Copy the character's position
 						grid[i][j]=emptyCase;//Replace the character with an empty case
 						grid[i+1][j]=tempPos;//set the character position to the lower line i+1(line+1)
-						System.out.println("i="+i+"j="+j+tempPos);
+						return;//STOPS the loop
 					}
 				
 				}
@@ -93,11 +93,10 @@ public class GameGrid {
 			for(int j=0;j<nbColumns;j++) {
 				if(grid[i][j]=='@' && grid[i][j-1]==emptyCase) {
 					if(j-1>=0) {
-						tempPos= grid[i][j];//Copy the character's position
+						tempPos=grid[i][j];//Copy the character's position
 						grid[i][j]=emptyCase;//Replace with an empty case
 						grid[i][j-1]=tempPos;//set the character's position to the next column i-1(column-1)
-						System.out.println("i="+i+"j="+j+tempPos);
-
+						
 					}
 				}
 			}
@@ -113,7 +112,7 @@ public class GameGrid {
 						tempPos= grid[i][j];//Copy the character's position
 						grid[i][j]=emptyCase;//Replace with an empty case
 						grid[i][j+1]=tempPos;//set the character's position to the next column i+1(column+1)
-						System.out.println("i="+i+"j="+j+tempPos);
+						return;//STOPS the loop
 					}
 				}
 			}
