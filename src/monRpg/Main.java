@@ -29,6 +29,7 @@ public class Main {
 			default:
 				System.out.println("ERROR");
 			}
+			
 			gGrid.displayGrid();
 			i++;
 		}
