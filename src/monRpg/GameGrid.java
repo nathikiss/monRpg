@@ -6,7 +6,7 @@ public class GameGrid {
 	private char[][] grid;
 	
 	char emptyCase ='.';
-	
+	//Map number of column and lines
 	public GameGrid(int nbL,int nbC) {
 		this.nbLines=nbL;
 		this.nbColumns=nbC;
@@ -18,7 +18,7 @@ public class GameGrid {
 			}
 		}
 	}
-	
+	//method pour afficher la Map
 	public void displayGrid() {
 		System.out.println();
 		for(int i=0;i<nbLines;i++) {
@@ -34,7 +34,7 @@ public class GameGrid {
 		return grid[l][c];
 		
 	}
-	public void posCharacter(int line, int column, char type) {
+	public void posCharacter(int line, int column, char type) {//determine initial player's position
 		line=line-1;
 		column=column-1;
 		if(line <0 || column<0 || line>nbLines || column>nbColumns) {
@@ -119,6 +119,4 @@ public class GameGrid {
 		}
 		
 	}
-	
-	
 }

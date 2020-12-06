@@ -1,5 +1,7 @@
 package monRpg;
 
+import java.util.Random;
+
 public class Entity {
 	/*attributes*/
 	protected String name;
@@ -37,14 +39,25 @@ public class Entity {
 	public int getStrength() {
 		return strength;
 	}
-	
-	public int simpleAttack() {
-		return strength+speed;
+	public void death() {
+		if (hp<0) {//no negative numbers allowed
+			hp=0;
+		}
+		System.out.println(name + "est mort");
+		
 	}
 	
+	public int simpleAttack() {
+		Random rand = new Random();
+		int dmgSimpleAttack = rand.nextInt(strength+speed);//rand entre 0 et Strenth+speed
+		return dmgSimpleAttack;
+	}
+	public void takeDamage(int damage) {
+	    hp = hp-damage;
+	}
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return name+"\n"+"Hp = "+hp+"\n"+"Strength  = "+strength+"\n"+"Speed = "+speed;
+		return name+":\n"+"|Hp = "+hp+"|Strength  = "+strength+"|Speed = "+speed;
 	}
 }
