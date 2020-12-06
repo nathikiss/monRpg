@@ -12,12 +12,16 @@ public class GameGrid {
 		this.nbLines = nbL;
 		this.nbColumns = nbC;
 		this.grid = new char[nbL][nbC];
-
+		// Create a Map with emptyCases
 		for (int i = 0; i < nbLines; i++) {
 			for (int j = 0; j < nbColumns; j++) {
 				grid[i][j] = emptyCase;
 			}
 		}
+	}
+
+	public char[][] getGrid() {
+		return grid;
 	}
 
 	// method pour afficher la Map
@@ -38,6 +42,22 @@ public class GameGrid {
 
 	}
 
+	public int detectStore() {
+		int detect=0;
+		for (int i = 0; i < nbLines; i++) {
+			for (int j = 0; j < nbColumns; j++) {
+				if (grid[i][j] == '@') {// We search for our character '@'
+					if (grid[i - 1][j] == 'S' || grid[i + 1][j] == 'S' || grid[i][j - 1] == 'S'
+							|| grid[i][j + 1] == 'S') // Test if the next case is the store
+					{
+						detect=1; 
+					}
+				}
+			}
+		}
+		return detect;
+	}
+
 	public void posCharacter(int line, int column, char type) {// determine initial player's position
 		line = line - 1;
 		column = column - 1;
@@ -52,6 +72,7 @@ public class GameGrid {
 		}
 
 	}
+
 	public void move(String m) {
 		char tempPos;
 		// navigate in the array to find our character
@@ -67,7 +88,8 @@ public class GameGrid {
 						}
 						break;
 					case "s":
-						if (i + 1 < nbLines && grid[i + 1][j] == emptyCase) {// i cannot increment above nbLines and go																				// Out of bounds
+						if (i + 1 < nbLines && grid[i + 1][j] == emptyCase) {// i cannot increment above nbLines and go
+																				// // Out of bounds
 							tempPos = grid[i][j];// Copy the character's position
 							grid[i][j] = emptyCase;// Replace the character with an empty case
 							grid[i + 1][j] = tempPos;// set the character position to the lower line i+1(line+1)
@@ -82,7 +104,8 @@ public class GameGrid {
 						}
 						break;
 					case "d":
-						if (j + 1 < nbColumns && grid[i][j + 1] == emptyCase) {// j cannot increment above nbColumns and go Out of bounds
+						if (j + 1 < nbColumns && grid[i][j + 1] == emptyCase) {// j cannot increment above nbColumns and
+																				// go Out of bounds
 							tempPos = grid[i][j];// Copy the character's position
 							grid[i][j] = emptyCase;// Replace with an empty case
 							grid[i][j + 1] = tempPos;// set the character's position to the next column i+1(column+1)
@@ -96,5 +119,4 @@ public class GameGrid {
 			}
 		}
 	}
-}	
-
+}

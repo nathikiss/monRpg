@@ -57,8 +57,10 @@ public class Character extends Entity{
 			case "1": m.takeDamage(this.armedAttack(m.getName()));//Monster gets damage from this character
 			break;
 			case "2":
+			break;
+			case "0": flee();
+			default:
 				break;
-			default:System.out.println("ERROR");
 			}
 			
 		}

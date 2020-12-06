@@ -13,14 +13,15 @@ public class Main {
 		Monster opponent=crapaud;
 		
 		gGrid.posCharacter(2, 4, '@');
-		gGrid.posCharacter(3, 4 ,'M');
+		gGrid.posCharacter(3, 4 ,'S');
 		gGrid.displayGrid();
 		System.out.println("    z"+"\n");
 		System.out.println("q       d"+"\n");
 		System.out.println("    s"+"\n");
 		int i = 0;
-		/*BOUCLE COMBAT 4 DIRECTION*/
-		while( i <10) {
+		int rand=(int)(Math.random() * 5)+1;//Random number between 1 and 5;
+		System.out.println(rand);
+		while( i <14) {//Limited to 14 moves for testing
 			Scanner sc1=new Scanner(System.in);//Player choose where he gonna move
 			String mvtChoice=sc1.next();
 			switch(mvtChoice) {
@@ -33,63 +34,14 @@ public class Main {
 			case "d":gGrid.move("d");
 			break;
 			default:
-				System.out.println("ERROR");
+				break;
 			}
-			gGrid.displayGrid();
+			gGrid.displayGrid();//display the Map
 			i++;
-			System.out.println(i);
-			if(i==3) {
+			if(i==rand) {
 				p1.startBattle(opponent);
 			}
 		}
-
-		/* BOUCLE method MOVE
-		while(i <10) {//i <10
-			Scanner sc1=new Scanner(System.in);//Player choose where he gonna move
-			String mvtChoice=sc1.next();
-			switch(mvtChoice) {
-			case "z":if(gGrid.move("z")==1) break;	
-			else if(gGrid.move("z")==2) {
-				p1.startBattle(opponent);
-			}
-			break;
-			case "s":if(gGrid.move("s")==1) break;	
-			else if(gGrid.move("s")==2) {
-				p1.startBattle(opponent);
-			}
-			break;
-			case "q":if(gGrid.move("q")==1) break;	
-			else if(gGrid.move("q")==2) {
-				p1.startBattle(opponent);
-			}
-			break;
-			case "d":if(gGrid.move("d")==1) break;	
-			else if(gGrid.move("d")==2) {
-				p1.startBattle(opponent);
-			}
-			break;
-			default:
-				System.out.println("ERROR");
-			}
-			
-			gGrid.displayGrid();
-			i++;
-		}
-	*/
-		/*System.out.println(k1.toString());
-		System.out.println(crapaud.toString());
-		Weapon k1Weapon = new Weapon();
-		crapaud.takeDamage(k1.armedAttack(crapaud.name));
-		System.out.println(crapaud.toString());
-		crapaud.takeDamage(k1.armedAttack(crapaud.name));
-		System.out.println(crapaud.toString());
-		*/
-		/*gGrid.moveDown();
-		gGrid.moveRight();
-		gGrid.moveLeft();
-		gGrid.moveUp();
-		gGrid.displayGrid();
-		*/
 		
 		
 	}

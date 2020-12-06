@@ -25,6 +25,7 @@ public class WeaponStore {
 	}
 	/*Methods*/
 	public void displayAllWeapons() {
+		System.out.println(name);
 		for(int i = 0 ; i < storeWeapons.size(); i++) {
 			System.out.println(i+": "+storeWeapons.get(i)+"\n");
 		}
