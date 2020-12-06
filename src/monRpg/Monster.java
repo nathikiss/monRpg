@@ -2,18 +2,18 @@ package monRpg;
 
 import java.util.Random;
 
-public class Monstre extends Entity {
+public class Monster extends Entity {
 	protected int rage=0;
 	protected String roar;
 	protected int xpLeft=100;
 	
-	public Monstre() {//MONSTRE BASE
+	public Monster() {//MONSTRE BASE
 		// TODO Auto-generated constructor stub
 		super("Crapaud", 100, 8, 10);
 		this.roar="Croasse";
 		
 	}
-	public Monstre(String n, int h, int s, int sp, String r,int xpLeft) {
+	public Monster(String n, int h, int s, int sp, String r,int xpLeft) {
 		// TODO Auto-generated constructor stub
 		super(n, h, s, sp);
 		this.roar=r;
@@ -33,7 +33,7 @@ public class Monstre extends Entity {
 	public int ragePlusOne() {
 		return rage+1;
 	}
-	public int monstreAttack() {
+	public int monsterAttack() {
 		Random rand = new Random();
 		int dmgSimpleAttack = rand.nextInt(strength+speed);
 		return dmgSimpleAttack;

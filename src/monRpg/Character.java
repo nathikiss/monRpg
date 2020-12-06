@@ -46,7 +46,7 @@ public class Character extends Entity{
 	
 	//Methods
 	
-	public void startBattle(Monstre m) {
+	public void startBattle(Monster m) {
 		System.out.println("LE COMBAT SE LANCE");
 		while(hp>0 && m.getHp()>0) {
 			System.out.println("ATTAQUER : 1"+"\n");

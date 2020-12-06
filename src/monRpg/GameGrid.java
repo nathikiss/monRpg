@@ -52,12 +52,7 @@ public class GameGrid {
 		}
 
 	}
-
-	/*
-	 * refaire tout en une seul fonction deplacer if up i-1, down i+1 left j-1 right
-	 * j+1
-	 */
-	public int move(String m) {
+	public void move(String m) {
 		char tempPos;
 		// navigate in the array to find our character
 		for (int i = 0; i < nbLines; i++) {
@@ -66,67 +61,31 @@ public class GameGrid {
 					switch (m) {
 					case "z":
 						if (i - 1 >= 0 && grid[i - 1][j] == emptyCase) {// Test if the new position is not out of bounds
-							System.out.println("Pas de monstre");
 							tempPos = grid[i][j];// Copy the character's position
 							grid[i][j] = emptyCase;// Replace with an empty case
 							grid[i - 1][j] = tempPos;// set the character position to the upper line i-1(line-1)
-							return 1;
 						}
-						else if (i - 1 >= 0 && grid[i - 1][j] == 'M') {// Test if the new position is not out of bounds
-							System.out.println("Monstre");
-							tempPos = grid[i][j];// Copy the character's position
-							grid[i][j] = emptyCase;// Replace with an empty case
-							grid[i - 1][j] = tempPos;// set the character position to the upper line i-1(line-1)
-							return 2;
-						}
-
 						break;
 					case "s":
 						if (i + 1 < nbLines && grid[i + 1][j] == emptyCase) {// i cannot increment above nbLines and go																				// Out of bounds
-							System.out.println("Pas de monstre");
 							tempPos = grid[i][j];// Copy the character's position
 							grid[i][j] = emptyCase;// Replace the character with an empty case
 							grid[i + 1][j] = tempPos;// set the character position to the lower line i+1(line+1)
-							return 1;// 1 means successful movement
-						}
-						else if (i + 1 < nbLines && grid[i + 1][j] == 'M') {// i cannot increment above nbLines and go																				// Out of bounds
-							System.out.println("monstre!!");
-							tempPos = grid[i][j];// Copy the character's position
-							grid[i][j] = emptyCase;// Replace the character with an empty case
-							grid[i + 1][j] = tempPos;// set the character position to the lower line i+1(line+1)
-							return 2;// 2 means battle
 						}
 						break;
 					case "q":
 						if (j - 1 >= 0 && grid[i][j - 1] == emptyCase) {
-							System.out.println("Pas de monstre");
 							tempPos = grid[i][j];// Copy the character's position
 							grid[i][j] = emptyCase;// Replace with an empty case
 							grid[i][j - 1] = tempPos;// set the character's position to the next column i-1(column-1)
-							return 1;
-						}
-						if (j - 1 >= 0 && grid[i][j - 1] == 'M') {
-							System.out.println("monstre!!");
-							tempPos = grid[i][j];// Copy the character's position
-							grid[i][j] = emptyCase;// Replace with an empty case
-							grid[i][j - 1] = tempPos;// set the character's position to the next column i-1(column-1)
-							return 2;
+
 						}
 						break;
 					case "d":
 						if (j + 1 < nbColumns && grid[i][j + 1] == emptyCase) {// j cannot increment above nbColumns and go Out of bounds
-							System.out.println("Pas de monstre");
 							tempPos = grid[i][j];// Copy the character's position
 							grid[i][j] = emptyCase;// Replace with an empty case
 							grid[i][j + 1] = tempPos;// set the character's position to the next column i+1(column+1)
-							return 1;// STOPS the loop to avoid the infinite loop
-						}
-						if (j + 1 < nbColumns && grid[i][j + 1] == emptyCase) {// j cannot increment above nbColumns and go Out of bounds
-							System.out.println("monstre!!");
-							tempPos = grid[i][j];// Copy the character's position
-							grid[i][j] = emptyCase;// Replace with an empty case
-							grid[i][j + 1] = tempPos;// set the character's position to the next column i+1(column+1)
-							return 2;// STOPS the loop to avoid the infinite loop
 						}
 						break;
 					default:
@@ -136,7 +95,6 @@ public class GameGrid {
 				}
 			}
 		}
-		return 0;
-
 	}
-}
+}	
+
