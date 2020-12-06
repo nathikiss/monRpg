@@ -18,13 +18,13 @@ public class Main {
 			Scanner sc1=new Scanner(System.in);//Player choose where he gonna move
 			String mvtChoice=sc1.next();
 			switch(mvtChoice) {
-			case "z":gGrid.moveUp();
+			case "z":gGrid.move("z");
 			break;
-			case "s":gGrid.moveDown();
+			case "s":gGrid.move("s");
 			break;
-			case "q":gGrid.moveLeft();
+			case "q":gGrid.move("q");
 			break;
-			case "d":gGrid.moveRight();
+			case "d":gGrid.move("d");
 			break;
 			default:
 				System.out.println("ERROR");
