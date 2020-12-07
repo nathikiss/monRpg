@@ -36,6 +36,7 @@ public class Monster extends Entity {
 	public int monsterAttack() {
 		Random rand = new Random();
 		int dmgSimpleAttack = rand.nextInt(strength+speed);
+		System.out.println(name+" vous attaque ");
 		return dmgSimpleAttack;
 	}
 	public int rageAttack(int simpleAttack) {

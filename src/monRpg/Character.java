@@ -62,6 +62,7 @@ public class Character extends Entity{
 			default:
 				break;
 			}
+			this.takeDamage(m.monsterAttack());
 			
 		}
 		
@@ -76,7 +77,6 @@ public class Character extends Entity{
 		int dmg = rand.nextInt(max)+10;//the damages will be at last randomly select between 10 and max damages+10 
 		System.out.println(name+" attaque "+target );
 		System.out.println(max);
-
 		System.out.println(target+" perd "+dmg+" hp");
 		return dmg;
 	}

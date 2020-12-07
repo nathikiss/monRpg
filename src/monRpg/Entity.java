@@ -53,6 +53,7 @@ public class Entity {
 		return dmgSimpleAttack;
 	}
 	public void takeDamage(int damage) {
+		System.out.println(name+" perd "+damage+" hp");
 	    hp = hp-damage;
 	}
 	@Override
